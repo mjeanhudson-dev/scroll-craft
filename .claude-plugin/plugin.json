@@ -1,0 +1,22 @@
+{
+  "name": "scroll-craft",
+  "version": "0.3.1",
+  "description": "Build premium scroll-driven landing pages with dimensional hero layering, eight distinct page grammars, a feeling curve, bespoke signature moves, cross-platform dense-GOP video encoding, headless Chrome visual verification, and Squarespace /s/ deployment packaging.",
+  "author": {
+    "name": "Eloquent",
+    "url": "https://github.com/mjeanhudson-dev"
+  },
+  "homepage": "https://github.com/nateherkai/scroll-craft",
+  "repository": "https://github.com/nateherkai/scroll-craft",
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "scrollytelling",
+    "landing-page",
+    "frontend",
+    "animation",
+    "squarespace",
+    "video-scrub",
+    "design"
+  ]
+}

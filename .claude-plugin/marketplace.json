@@ -1,0 +1,18 @@
+{
+  "name": "scroll-craft",
+  "owner": {
+    "name": "Eloquent",
+    "url": "https://github.com/mjeanhudson-dev"
+  },
+  "metadata": {
+    "description": "Scroll Craft: build and visually verify premium scroll-driven landing pages across Antigravity, Gemini CLI, Claude Code, Codex, and Squarespace."
+  },
+  "plugins": [
+    {
+      "name": "scroll-craft",
+      "source": "./",
+      "description": "Build premium scroll-driven landing pages with dimensional hero layering, cross-platform dense-GOP video encoding, Playwright visual verification, and Squarespace deployment packaging.",
+      "category": "design"
+    }
+  ]
+}

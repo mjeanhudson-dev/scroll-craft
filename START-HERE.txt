@@ -1,0 +1,29 @@
+SCROLLCRAFT (v0.3.1) — MULTI-AGENT QUICK START
+Upstream by Nate Herk / AI Automation Society (v0.3.0)
+Adapted for Antigravity, Gemini CLI, Windows & Squarespace by Eloquent (@mjeanhudson-dev)
+
+1. Keep the repository structure intact; the canonical skill lives in skills/scroll-craft/.
+
+ANTIGRAVITY
+  agy plugin validate . --strict --json
+  agy plugin install .
+
+GEMINI CLI
+  Load this folder as an extension via gemini-extension.json (reads rules/GEMINI.md).
+
+CODEX
+  Copy skills/scroll-craft/ into your project's .agents/skills/ folder, or use .codex-plugin/.
+
+CLAUDE CODE
+  claude plugin validate . --strict
+  Ask Claude Code to read skills/scroll-craft/SKILL.md and build your page.
+
+PREFLIGHT & TESTS (Windows / macOS / Linux, no Bash required)
+  node skills/scroll-craft/scripts/doctor.mjs
+  node skills/scroll-craft/scripts/workspace.mjs --ensure
+  npm test
+
+SQUARESPACE PACKAGING
+  node skills/scroll-craft/scripts/squarespace-pack.mjs --in <buildDir> --site https://example.com
+
+See docs/antigravity.md, docs/squarespace.md, and SOURCE-README.md for details.

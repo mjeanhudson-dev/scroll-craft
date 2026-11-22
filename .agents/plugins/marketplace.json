@@ -1,0 +1,20 @@
+{
+  "name": "scroll-craft",
+  "interface": {
+    "displayName": "Scroll Craft"
+  },
+  "plugins": [
+    {
+      "name": "scroll-craft",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

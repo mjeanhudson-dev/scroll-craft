@@ -1,0 +1,46 @@
+{
+  "name": "scroll-craft",
+  "version": "0.3.1",
+  "description": "Build premium scroll-driven landing pages with dimensional hero layering, eight distinct page grammars, a feeling curve, bespoke signature moves, cross-platform dense-GOP video encoding, headless Chrome visual verification, and Squarespace /s/ deployment packaging.",
+  "author": {
+    "name": "Eloquent",
+    "url": "https://github.com/mjeanhudson-dev"
+  },
+  "homepage": "https://github.com/nateherkai/scroll-craft",
+  "repository": "https://github.com/nateherkai/scroll-craft",
+  "license": "MIT",
+  "keywords": [
+    "scroll",
+    "scrollytelling",
+    "landing-page",
+    "frontend",
+    "animation",
+    "squarespace",
+    "video-scrub",
+    "design"
+  ],
+  "skills": "./skills/",
+  "requires_local_executor": true,
+  "interface": {
+    "displayName": "Scroll Craft",
+    "shortDescription": "Build premium scroll-driven landing pages",
+    "longDescription": "Plan the visitor journey, page grammar, feeling curve, emotional peak, and bespoke signature move. Prepare dense-GOP scrub clips with cross-platform Node tooling, author semantic HTML on a token-driven design floor, verify desktop, mobile, and reduced-motion states in real Chrome, and package for Squarespace.",
+    "developerName": "Eloquent",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/nateherkai/scroll-craft",
+    "defaultPrompt": [
+      "Use scroll-craft to build a scroll-driven landing page for my brand",
+      "Run scroll-craft preflight and verify my build across desktop, mobile, and reduced motion",
+      "Package my scroll-craft build for Squarespace (/s/ uploads + Code Injection)"
+    ],
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/icon.png",
+    "brandColor": "#0A0B0E",
+    "screenshots": []
+  }
+}

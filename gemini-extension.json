@@ -1,0 +1,6 @@
+{
+  "name": "scroll-craft",
+  "version": "0.3.1",
+  "description": "Build premium scroll-driven landing pages with cross-platform Node encoding, headless Chrome visual verification, and Squarespace /s/ deployment packaging.",
+  "contextFileName": "rules/GEMINI.md"
+}

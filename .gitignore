@@ -1,0 +1,7 @@
+.env
+node_modules/
+scrollcraft/
+lab/
+*.log
+.DS_Store
+Thumbs.db
