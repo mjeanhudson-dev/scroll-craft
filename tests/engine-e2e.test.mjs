@@ -163,6 +163,13 @@ test("real headless Chrome: Blob scrub, mount/destroy teardown, non-CORS Squares
         </div>
       </div>
     </section>
+    <section id="flow-stagger-test" style="padding:4rem">
+      <div id="bare-stagger" data-sc-stagger>
+        <div>Item A</div>
+        <div>Item B</div>
+        <div>Item C</div>
+      </div>
+    </section>
   </main>
   <script src="scrollcraft.js"></script>
   <script>window.__scApi = ScrollCraft.mount(document.body);</script>
@@ -193,6 +200,19 @@ test("real headless Chrome: Blob scrub, mount/destroy teardown, non-CORS Squares
       await page.waitForTimeout(700);
       const after = await page.evaluate(() => document.querySelector("video").currentTime);
       assert.ok(after > before.t + 0.1, `Expected blob video to advance on scroll (${before.t} -> ${after})`);
+
+      // Verify bare [data-sc-stagger] (without data-sc-in or numeric ms) reveals sequentially with 80ms default cadence
+      await page.evaluate(() => document.getElementById("bare-stagger").scrollIntoView({ block: "center", behavior: "instant" }));
+      await page.waitForTimeout(950);
+      const staggerState = await page.evaluate(() =>
+        [...document.querySelectorAll("#bare-stagger > div")].map((el) => ({
+          scIn: el.classList.contains("sc-in"),
+          delay: el.style.transitionDelay,
+          opacity: getComputedStyle(el).opacity,
+        }))
+      );
+      assert.deepEqual(staggerState.map((s) => s.delay), ["0ms", "80ms", "160ms"]);
+      assert.ok(staggerState.every((s) => s.scIn && s.opacity === "1"), `Bare stagger failed to reveal: ${JSON.stringify(staggerState)}`);
 
       const destroyed = await page.evaluate(() => {
         window.__scApi.destroy();

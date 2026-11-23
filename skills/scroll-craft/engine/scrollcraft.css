@@ -286,9 +286,12 @@ video[data-sc-scrub] { opacity: 0; transition: opacity 380ms var(--sc-ease-out);
 .sc-js [data-sc-in], .sc-js [data-sc-stagger] > * {
   opacity: 0;
   transform: translate3d(0, 14px, 0);
+}
+.sc-js [data-sc-in].sc-in, .sc-js [data-sc-stagger] > .sc-in {
+  opacity: 1;
+  transform: none;
   transition: opacity 620ms var(--sc-ease-out), transform 620ms var(--sc-ease-out);
 }
-.sc-js [data-sc-in].sc-in, .sc-js [data-sc-stagger] > .sc-in { opacity: 1; transform: none; }
 
 /* pointer devices */
 [data-sc-tilt] { transform-style: preserve-3d; }
@@ -386,7 +389,8 @@ video[data-sc-scrub].sc-has-clip { opacity: 1; }
 @media (prefers-reduced-motion: reduce) {
   /* Fewer and gentler, not zero. Opacity still carries the reveal so the page
      is comprehensible; every position change is dropped. */
-  .sc-js [data-sc-in], .sc-js [data-sc-stagger] > *, [data-sc-in], [data-sc-stagger] > * { transform: none; transition-duration: 220ms; }
+  .sc-js [data-sc-in], .sc-js [data-sc-stagger] > *, [data-sc-in], [data-sc-stagger] > * { transform: none; }
+  .sc-js [data-sc-in].sc-in, .sc-js [data-sc-stagger] > .sc-in { transition-duration: 220ms; }
   [data-sc-parallax], [data-sc-pan], .sc-split__i { transform: none !important; }
   /* A wipe is a position change too. Show reveal content settled. */
   [data-sc-reveal] { clip-path: none !important; }

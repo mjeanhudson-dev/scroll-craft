@@ -517,25 +517,30 @@
     // never-revealed element in a removed subtree is retained for the life of the
     // tab, once per re-mount.
     var io = null, cio = null;
+    function revealFlowEl(el) {
+      el.classList.add('sc-in');
+      if (el.hasAttribute('data-sc-stagger')) {
+        var rawStagger = (el.getAttribute('data-sc-stagger') || '').trim();
+        var stagger = rawStagger === '' ? 80 : parseFloat(rawStagger);
+        if (isNaN(stagger) || stagger < 0) stagger = 80;
+        Array.prototype.forEach.call(el.children, function (kid, i) {
+          kid.style.transitionDelay = (reduce ? 0 : (i * stagger)) + 'ms';
+          kid.classList.add('sc-in');
+        });
+      }
+    }
+    var flowTargets = root.querySelectorAll('[data-sc-in], [data-sc-stagger]');
     if ('IntersectionObserver' in window) {
       io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
-          var el = e.target;
-          el.classList.add('sc-in');
-          var stagger = parseFloat(el.getAttribute('data-sc-stagger'));
-          if (!isNaN(stagger)) {
-            Array.prototype.forEach.call(el.children, function (kid, i) {
-              kid.style.transitionDelay = (i * stagger) + 'ms';
-              kid.classList.add('sc-in');
-            });
-          }
-          io.unobserve(el);
+          revealFlowEl(e.target);
+          io.unobserve(e.target);
         });
       }, { rootMargin: '0px 0px -12% 0px', threshold: 0.01 });
-      Array.prototype.forEach.call(root.querySelectorAll('[data-sc-in]'), function (el) { io.observe(el); });
+      Array.prototype.forEach.call(flowTargets, function (el) { io.observe(el); });
     } else {
-      Array.prototype.forEach.call(root.querySelectorAll('[data-sc-in]'), function (el) { el.classList.add('sc-in'); });
+      Array.prototype.forEach.call(flowTargets, revealFlowEl);
     }
 
     // ---- entry counters (fire once) --------------------------------------
